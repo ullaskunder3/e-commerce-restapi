@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 const userRoute = require('./routes/user');
+const authRoute = require('./routes/auth');
 
 mongoose.connect(process.env.MONGO_CLOUD_DB || process.env.MONGO_LOCAL_DB)
 .then(()=>{
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_CLOUD_DB || process.env.MONGO_LOCAL_DB)
 app.use(express.json());
 
 app.use('/api/user', userRoute);
+app.use('/api/auth', authRoute);
 
 app.get('/', (req, res)=>{
     res.send("homepage")
