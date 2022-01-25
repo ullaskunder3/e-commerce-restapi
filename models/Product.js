@@ -19,7 +19,7 @@ const ProductSchema = new mongoose.Schema(
             type: Number,
             required: true
         },
-        size: { type: Boolean },
+        size: { type: String },
         color: { type: String },
         categories: { type: Array },
 
